@@ -3,10 +3,10 @@ const EXPIRE_YEAR_LENGTH = 3;
 
 // return random 16 digit credit card number
 export const getCreditCardNumber = () => {
-  const digits = Array.from({ length: MAX_DIGITS }, () => Math.floor(Math.random() * 10));
-  return digits.join("");
+  // Generate 16 random digits and format as #### #### #### ####
+  const digits = Array.from({ length: MAX_DIGITS }, () => Math.floor(Math.random() * 10)).join("");
+  return digits.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
 };
-  //return "1234 5678 9012 3456";
 
 
 export function generateExpiryDate() {
